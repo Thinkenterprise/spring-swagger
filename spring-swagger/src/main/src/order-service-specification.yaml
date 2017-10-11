@@ -1,0 +1,49 @@
+swagger: '2.0'
+
+# General API Specification  
+
+info:
+  version: "v1"
+  title: REST API for 'Order Service'
+  description: |
+    This swagger specification Provide the definition of the oder service REST API 
+        
+host: movieapp-sitepointdemos.rhcloud.com
+basePath: /api
+  
+
+# General Path Specification  
+
+paths:
+  /orders:
+    get:
+      summary: List all orders  
+      produces:
+        - application/json 
+      responses:
+        200:
+          description: An array with all movies.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Order'
+    
+   
+# General Type Definition                                  
+
+definitions:
+  Order:
+    type: object
+    properties:
+      _id:
+        type: number
+        description: A unique identifier of the movie. Automatically assigned by the API when the movie is created.
+      number:
+        type: string
+        description: The unique order numer.  
+      product:
+        type: string
+        description: The product name.
+      cutomer:
+        type: string
+        description: The customer name.
