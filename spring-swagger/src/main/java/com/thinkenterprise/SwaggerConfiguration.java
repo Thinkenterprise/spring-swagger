@@ -15,23 +15,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfiguration {
 
-	 @Bean
-	    public Docket newsApi() {
-	        return new Docket(DocumentationType.SWAGGER_2)
-	                .apiInfo(apiInfo())
-	                .select()
-	                .apis(RequestHandlerSelectors.basePackage("com.thinkenterprise"))              
-	                .paths(PathSelectors.any())                          
-	                .build();
-	    }
-	     
-	    private ApiInfo apiInfo() {
-	        return new ApiInfoBuilder()
-	                .title("Spring Route Service")
-	                .description("Spring Route Service")
-	                .version("1.0")
-	                .build();
-	    }
-	    
+	@Bean
+	public Docket newsApi() {
+		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
+				.apis(RequestHandlerSelectors.basePackage("com.thinkenterprise")).paths(PathSelectors.any()).build();
+	}
+
+	private ApiInfo apiInfo() {
+		return new ApiInfoBuilder().title("Spring Route Service").description("Spring Route Service").version("1.0")
+				.build();
+	}
 
 }

@@ -4,9 +4,9 @@ swagger: '2.0'
 
 info:
   version: "v1"
-  title: REST API for 'Order Service'
+  title: REST API for 'Flight Service'
   description: |
-    This swagger specification Provide the definition of the oder service REST API 
+    This swagger specification Provide the definition of the Flight Service REST API 
         
 host: movieapp-sitepointdemos.rhcloud.com
 basePath: /api
@@ -15,35 +15,41 @@ basePath: /api
 # General Path Specification  
 
 paths:
-  /orders:
+ /routes:
     get:
-      summary: List all orders  
+      summary: List all Flights  
       produces:
         - application/json 
       responses:
         200:
-          description: An array with all movies.
+          description: An array with all Flights.
           schema:
             type: array
             items:
-              $ref: '#/definitions/Order'
+              $ref: '#/definitions/Flight'
     
    
 # General Type Definition                                  
-
 definitions:
-  Order:
+  Flight:
     type: object
     properties:
       _id:
         type: number
-        description: A unique identifier of the movie. Automatically assigned by the API when the movie is created.
-      number:
+        description: A unique identifier of the movie. Automatically assigned by the API when the Flights is created.
+      flightNumber:
         type: string
-        description: The unique order numer.  
-      product:
+        description: The unique order flightNumber.  
+      departure:
         type: string
-        description: The product name.
-      cutomer:
+        description: The departure name.
+      destination:
         type: string
-        description: The customer name.
+        description: The destination name.  
+        
+        
+        
+        
+        
+        
+        
