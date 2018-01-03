@@ -1,2 +1,5 @@
 swagger-ui.html
 v2/api-docs
+
+/routes
+/routes-gen

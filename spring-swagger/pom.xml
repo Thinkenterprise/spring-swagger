@@ -86,25 +86,25 @@
 				</executions>
 			</plugin>
 
-			<!-- Swagger Plugin  -->
-			
+			<!-- Swagger Plugin -->
+
 			<plugin>
 				<groupId>io.swagger</groupId>
 				<artifactId>swagger-codegen-maven-plugin</artifactId>
-				<version>2.2.2</version>
+				<version>2.3.0</version>
 				<executions>
 					<execution>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>src/main/resources/order-service-specification.yaml</inputSpec>
+							<inputSpec>src/main/resources/route-service-specification.yaml</inputSpec>
 							<language>spring</language>
+
+							<apiPackage>com.thinkenterprise.contractfirst.controller</apiPackage>
+							<modelPackage>com.thinkenterprise.contractfirst.controller.model</modelPackage>
 							
-							<apiPackage>com.thinkenterprise.controller</apiPackage>
-							<modelPackage>com.thinkenterprise.controller.model</modelPackage>
-							
-							<output>${project.build.directory}</output>
+							<output>${project.build.directory}/generated-sources</output>
 							<addCompileSourceRoot>false</addCompileSourceRoot>
 							
 							<generateApis>true</generateApis>
@@ -117,8 +117,29 @@
 							<skip>false</skip>
 							
 							<configOptions>
-								<sourceFolder>src/main/java</sourceFolder>
-							</configOptions>
+								<sourceFolder>swagger-codegen</sourceFolder>
+							</configOptions>						
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- This plugin is used to add source path of generated sources to project -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9.1</version>
+				<executions>
+					<execution>
+						<id>add-generated-source</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.build.directory}/generated-sources/swagger-codegen</source>
+							</sources>
 						</configuration>
 					</execution>
 				</executions>
@@ -126,7 +147,8 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -141,7 +163,7 @@
 											swagger-codegen-maven-plugin
 										</artifactId>
 										<versionRange>
-											[2.2.2,)
+											[2.3.0,)
 										</versionRange>
 										<goals>
 											<goal>generate</goal>
