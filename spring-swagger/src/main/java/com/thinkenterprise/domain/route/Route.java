@@ -21,10 +21,6 @@
 package com.thinkenterprise.domain.route;
 
 
-import com.thinkenterprise.domain.core.AbstractEntity;
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -32,6 +28,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
+import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.thinkenterprise.domain.core.AbstractEntity;
+
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 public class Route extends AbstractEntity {
@@ -42,7 +52,11 @@ public class Route extends AbstractEntity {
     
     private String destination;
 
+    @XmlTransient
     private LocalTime departureTime;
+
+    @ApiModelProperty(hidden=true)
+    @XmlTransient
     private LocalTime arrivalTime;
 
     @Enumerated(EnumType.ORDINAL)

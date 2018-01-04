@@ -26,12 +26,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Route'
+              $ref: '#/definitions/RouteGen'
     
    
 # General Type Definition                                  
 definitions:
-  Route:
+  RouteGen:
     type: object
     properties:
       _id:
