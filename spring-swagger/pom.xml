@@ -54,12 +54,18 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.7.0</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.7.0</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>net.rakugakibox.spring.boot</groupId>
+			<artifactId>orika-spring-boot-starter</artifactId>
+			<version>1.5.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -102,10 +108,10 @@
 
 							<apiPackage>com.thinkenterprise.contractfirst.controller</apiPackage>
 							<modelPackage>com.thinkenterprise.contractfirst.controller.model</modelPackage>
-							
+
 							<output>${project.build.directory}/generated-sources</output>
 							<addCompileSourceRoot>false</addCompileSourceRoot>
-							
+
 							<generateApis>true</generateApis>
 							<generateApiTests>false</generateApiTests>
 							<generateApiDocumentation>true</generateApiDocumentation>
@@ -114,10 +120,10 @@
 							<generateModelDocumentation>true</generateModelDocumentation>
 							<generateSupportingFiles>false</generateSupportingFiles>
 							<skip>false</skip>
-							
+
 							<configOptions>
 								<sourceFolder>swagger-codegen</sourceFolder>
-							</configOptions>						
+							</configOptions>
 						</configuration>
 					</execution>
 				</executions>
