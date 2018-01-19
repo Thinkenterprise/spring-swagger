@@ -54,13 +54,13 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.7.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.7.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.rakugakibox.spring.boot</groupId>
 			<artifactId>orika-spring-boot-starter</artifactId>
@@ -136,8 +136,8 @@
 				<version>1.9.1</version>
 				<executions>
 					<execution>
-						<id>add-generated-source</id>
-						<phase>initialize</phase>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
 						<goals>
 							<goal>add-source</goal>
 						</goals>
