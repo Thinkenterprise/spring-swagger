@@ -32,7 +32,7 @@ import java.util.Set;
 @Entity
 public class Flight extends AbstractEntity {
 
-    private double price;
+    private Double price;
 
     private LocalDate date;
 
@@ -43,17 +43,17 @@ public class Flight extends AbstractEntity {
         super();
     }
 
-    public Flight(double price, LocalDate date) {
+    public Flight(Double price, LocalDate date) {
         super();
         this.price = price;
         this.date = date;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

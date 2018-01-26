@@ -17,13 +17,19 @@
 
 package com.thinkenterprise.controller.mapper;
 
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
+
 public class RouteDTO {
   
     private String flight;
    
-    private String departure;
+    private String departure = "UNDEFINED";
     
-    private String destination;
+    private String destination = "UNDEFINED";
+
+    private Map<LocalDate, Double> prices = new HashMap<>();
 
 	public String getFlight() {
 		return flight;
@@ -47,5 +53,13 @@ public class RouteDTO {
 
 	public void setDestination(String destination) {
 		this.destination = destination;
+	}
+
+	public Map<LocalDate, Double> getPrices() {
+		return prices;
+	}
+
+	public void setPrices(Map<LocalDate, Double> prices) {
+		this.prices = prices;
 	}
 }

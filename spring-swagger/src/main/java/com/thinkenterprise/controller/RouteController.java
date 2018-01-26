@@ -16,6 +16,7 @@ import com.thinkenterprise.repository.RouteRepository;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import ma.glasnost.orika.MapperFacade;
@@ -41,7 +42,7 @@ public class RouteController {
 	@ApiOperation(value = "Get a route by flightNumber")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Route found"),
 			@ApiResponse(code = 404, message = "Route not found") })
-	public ResponseEntity<Route> getRouteByFlightNumber(@PathVariable("flightNumber") String flightNumber) {
+	public ResponseEntity<Route> getRouteByFlightNumber(@ApiParam(value="Flugnummer z.B. LH1234") @PathVariable("flightNumber") String flightNumber) {
 		return ResponseEntity.ok(repository.findByFlightNumber(flightNumber));
 	}
 

@@ -37,8 +37,8 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 import javax.persistence.Transient;
-import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.thinkenterprise.domain.core.AbstractEntity;
 
 import io.swagger.annotations.ApiModel;
@@ -54,11 +54,10 @@ public class Route extends AbstractEntity {
     
     private String destination;
 
-    @XmlTransient
     private LocalTime departureTime;
 
     @ApiModelProperty(hidden=true)
-    @XmlTransient
+    @JsonIgnore
     private LocalTime arrivalTime;
 
     @Enumerated(EnumType.ORDINAL)
