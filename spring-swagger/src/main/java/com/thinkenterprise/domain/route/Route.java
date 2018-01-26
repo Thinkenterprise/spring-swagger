@@ -41,9 +41,11 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.thinkenterprise.domain.core.AbstractEntity;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @Entity
+@ApiModel("Route")
 public class Route extends AbstractEntity {
   
     private String flightNumber;
@@ -63,6 +65,7 @@ public class Route extends AbstractEntity {
     @ElementCollection(targetClass = DayOfWeek.class)
     private Set<DayOfWeek> scheduledWeekdays = new HashSet<>();
 
+    @ApiModelProperty(value = "Aircraft type", allowableValues = "A320,A380,B747")
     private String aircraft;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
