@@ -28,4 +28,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface RouteRepository extends CrudRepository<Route, Long> {
 
+	public Route findByFlightNumber (String flightNumber);
+	
 }
