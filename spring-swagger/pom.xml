@@ -61,11 +61,6 @@
 			<version>2.7.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>net.rakugakibox.spring.boot</groupId>
-			<artifactId>orika-spring-boot-starter</artifactId>
-			<version>1.5.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -103,7 +98,7 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>src/main/resources/route-service-specification.yaml</inputSpec>
+							<inputSpec>src/main/resources/routes.yaml</inputSpec>
 							<language>spring</language>
 
 							<apiPackage>com.thinkenterprise.contractfirst.controller</apiPackage>
@@ -172,6 +167,25 @@
 										</versionRange>
 										<goals>
 											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											build-helper-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.9.1,)
+										</versionRange>
+										<goals>
+											<goal>add-source</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
