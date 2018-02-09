@@ -20,14 +20,13 @@
 
 package com.thinkenterprise.repository;
 
-import com.thinkenterprise.domain.route.Route;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+
+import com.thinkenterprise.domain.route.Route;
 
 
 public interface RouteRepository extends CrudRepository<Route, Long> {
 
-	public Route findByFlightNumber (String flightNumber);
+	public Iterable<Route> findByDeparture(String departure);
 	
 }
