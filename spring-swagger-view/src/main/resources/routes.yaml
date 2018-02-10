@@ -1,0 +1,135 @@
+swagger: '2.0'
+
+# General API Specification  
+
+info:
+  version: "v1"
+  title: REST API for 'Route Service'
+  description: |
+    This swagger specification provides the definition of the Route Service REST API 
+        
+host: movieapp-sitepointdemos.rhcloud.com
+basePath: /
+  
+
+# General Path Specification  
+
+paths:
+ /routes:
+    get:
+      summary: List all routes  
+      description: Read the Routes from the repository 
+      operationId: getAll
+      tags:
+        - Routes 
+      produces:
+        - application/json 
+      responses:
+        200:
+          description: An array with all routes.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Route'   
+        203:
+           description: No Content.
+                     
+    post:
+      summary: Create a Route
+      description: Create a new Route in the Repository 
+      operationId: post
+      tags:
+        - Routes 
+      responses:
+        201:
+          description: Created Route.
+          schema:
+            $ref: '#/definitions/Route'
+        default:
+          description: No Content. 
+          schema:
+                $ref: "#/definitions//Error"     
+ /routes/{id}:
+    get:
+      summary: Info for a specific Route
+      description: Read the Routes from the repository 
+      operationId: get
+      tags:
+        - Routes
+      parameters:
+       - name: 
+         name: id
+         in: path
+         description: identifier 
+         required: true
+         type: integer
+         format: int64
+         
+      responses:
+        200:
+          description: Expected response to a valid request
+          schema:
+                $ref: "#/definitions/Route"
+        default:
+          description: unexpected error
+          schema:
+                $ref: "#/definitions//Error"
+    
+    
+ /routes/search: 
+  get:
+    summary: Search a route by depature 
+    description: Search a route by depature in the route repository 
+    operationId: routeSearch
+    tags:
+      - Routes 
+    produces:
+      - application/json
+      
+    parameters:
+       - name: 
+         name: depature
+         in: query
+         description: filter  
+         required: true
+         type: string
+                 
+    responses:
+        200:
+          description: An array with all routes.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Route'   
+        203:
+           description: No Content.
+     
+# General Type Definition                                  
+definitions:
+  Route:
+    type: object
+    properties:
+      _id:
+        type: number
+        description: A unique identifier of the route. Automatically assigned by the API when the route is created.
+      flightNumber:
+        type: string
+        description: The unique order flightNumber.  
+      departure:
+        type: string
+        description: The departure name.
+      destination:
+        type: string
+        description: The destination name.  
+  Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string        
+        
+        

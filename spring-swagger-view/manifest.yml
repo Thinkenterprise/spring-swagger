@@ -1,0 +1,5 @@
+---
+applications:
+  - name: fortunes-${random-word}
+    instances: 1
+    path: target/spring-pcf-api-start-0.0.1-SNAPSHOT.jar
